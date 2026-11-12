@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Musical Events</title>
+</head>
+<body>
+<nav>
+    <a href="/">HOME</a>
+    <a href="/musicians">Musicians management</a>
+    <a href="/bands">Bands management</a>
+    <a href="/musicalevents">Musical events management</a>
+</nav>
+<h1>VYPIS MUSICAL EVENTU KTERY MAJI KAPELU, KTERA BYLA ZALOZENA V ZADANEM ROCE NEBO POZDEJI</h1>
+<form action="/musicalevents/afterdate" method="get">
+    <label for="date">Date:</label>
+    <input type="date" id="date" name="date" required />
+    <button type="submit">Sumbit</button>
+</form>
+<main>
+    <h1>Musical Event management</h1>
+    <td><a href="#" th:href="@{/musicalevents/create}">CREATE NEW MUSICAL EVENT</a></td>
+    <table>
+        <thread>
+            <tr>
+                <td>musical_event_id</td>
+                <td>town</td>
+                <td>event_name</td>
+                <td>date</td>
+                <td>bands_id</td>
+            </tr>
+        </thread>
+        <tr th:each="m: ${musicalEvents}">
+            <td th:text="${m.getMusicalEventId()}">id</td>
+            <td th:text="${m.getTown()}">town</td>
+            <td th:text="${m.getEventName()}">name</td>
+            <td th:text="${m.getDate()}">12-12-2020</td>
+            <td th:text="${m.getBandsId()}">id</td>
+            <td><a href="#" th:href="@{/musicalevents/update(id=${m.getMusicalEventId()})}">EDIT</a></td>
+            <td><a href="#" th:href="@{/musicalevents/delete(id=${m.getMusicalEventId()})}">DELETE</a></td>
+            <td><a href="#" th:href="@{/musicalevents/addNewBands(id=${m.getMusicalEventId()})}">ADD BANDS AFTER YEAR 2020</a></td>
+        </tr>
+    </table>
+</main>
+
+</body>
+</html>

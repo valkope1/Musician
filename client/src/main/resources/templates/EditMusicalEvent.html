@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>MUSICAL EVENTS</title>
+</head>
+<body>
+<nav>
+    <a href="/">HOME</a>
+    <a href="/musicians">Musicians management</a>
+    <a href="/bands">Bands management</a>
+    <a href="/musicalevents">Musical events management</a>
+</nav>
+<main>
+    <h1>MUSICAL EVENT - EDIT</h1>
+    <form action="/musicalevents/update" method="post" th:object="${musicalevent}">
+        <label for="musicalEventId">ID:</label>
+        <input type="text"  readonly="readonly" id="musicalEventId" name="musicalEventId" th:field="*{musicalEventId}" />
+
+        <br/>
+        <label for="town">Town:</label>
+        <input type="text" id="town" name="town" required th:field="*{town}" />
+
+        <br/>
+
+        <label for="eventName">Event name:</label>
+        <input type="text" id="eventName" name="eventName" required th:field="*{eventName}" />
+
+        <br/>
+
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required th:field="*{date}" />
+
+        <br/>
+
+        <label for="bandsId">Bands ID:</label>
+        <input type="text" readonly="readonly" id="bandsId" name="bandsId" th:field="*{bandsId}" />
+
+        <br/>
+        <button type="submit">Save</button>
+    </form>
+</main>
+
+</body>
+</html>

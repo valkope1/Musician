@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Bands</title>
+</head>
+<body>
+<nav>
+    <a href="/">HOME</a>
+    <a href="/musicians">Musicians management</a>
+    <a href="/bands">Bands management</a>
+    <a href="/musicalevents">Musical events management</a>
+</nav>
+<main>
+    <h1>Bands management</h1>
+    <td><a href="#" th:href="@{/bands/create}">CREATE NEW BAND</a></td>
+    <table>
+        <thread>
+            <tr>
+                <td>band_id</td>
+                <td>name</td>
+                <td>genre</td>
+                <td>formation_date</td>
+                <td>musicians_id</td>
+                <td>events_Id</td>
+            </tr>
+        </thread>
+        <tr th:each="b: ${bands}">
+            <td th:text="${b.bandId}">id</td>
+            <td th:text="${b.name}">uname</td>
+            <td th:text="${b.genre}">unsssame</td>
+            <td th:text="${b.formationDate}">12-12-2020</td>
+            <td th:text="${b.musiciansId}">id</td>
+            <td th:text="${b.musicalEventsId}">id</td>
+            <td><a href="#" th:href="@{/bands/update(id=${b.bandId})}">EDIT</a></td>
+            <td><a href="#" th:href="@{/bands/delete(id=${b.bandId})}">DELETE</a></td>
+            <td>
+            <form action="bands/addToMusicalEvent" method="get">
+                <input type="hidden" name="bandId" th:value="${b.bandId}">
+                <label for="eventId">Id musical eventu:</label>
+                <select id="eventId" name="eventId" th:required="true">
+                    <option th:each="option : ${musicalEventId}" th:value="${option}" th:text="${option}"></option>
+                </select>
+                <button type="submit">Add</button>
+            </form>
+                <form action="bands/removeFromMusicalEvent" method="get">
+                    <input type="hidden" name="bandId" th:value="${b.bandId}">
+                    <label for="eventId2">Id musical eventu:</label>
+                    <select id="eventId2" name="eventId2" th:required="true">
+                        <option th:each="option : ${musicalEventId}" th:value="${option}" th:text="${option}"></option>
+                    </select>
+                    <button type="submit">Remove</button>
+                </form>
+        </tr>
+    </table>
+</main>
+
+</body>
+</html>

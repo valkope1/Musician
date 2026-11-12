@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>BANDS</title>
+</head>
+<body>
+<nav>
+    <a href="/">HOME</a>
+    <a href="/musicians">Musicians management</a>
+    <a href="/bands">Bands management</a>
+    <a href="/musicalevents">Musical events management</a>
+</nav>
+<main>
+    <h1>BAND CREATE</h1>
+    <form action="/bands/create" method="post">
+        <label for="bandId">Id:</label>
+        <input type="hidden" id="bandId" name="bandId" value="0"/>
+
+        <br/>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required/>
+
+        <br/>
+
+        <label for="genre">Genre:</label>
+        <input type="text" id="genre" name="genre" required/>
+
+        <br/>
+
+        <label for="formationDate">Formation date:</label>
+        <input type="date" id="formationDate" name="formationDate" required/>
+
+        <br/>
+
+        <label for="musiciansId">Musicians ID:</label>
+        <input type="hidden" id="musiciansId" name="musiciansId" value=""/>
+
+        <br/>
+
+        <label for="musicalEventsId">Musical Events ID:</label>
+        <input type="hidden" id="musicalEventsId" name="musicalEventsId" value=""/>
+
+        <br/>
+
+        <button type="submit">Create band</button>
+    </form>
+</main>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Musical Events</title>
+</head>
+<body>
+<nav>
+    <a href="/">HOME</a>
+    <a href="/musicians">Musicians management</a>
+    <a href="/bands">Bands management</a>
+    <a href="/musicalevents">Musical events management</a>
+</nav>
+<main>
+    <h1>Musical Events s kapelou, ktera byla zalozena po:</h1>
+    <p th:text="${date}"></p>
+    <table>
+        <thread>
+            <tr>
+                <td>musical_event_id</td>
+                <td>town</td>
+                <td>event_name</td>
+                <td>date</td>
+            </tr>
+        </thread>
+        <tr th:each="m: ${musicalevent}">
+            <td th:text="${m.getMusicalEventId()}">id</td>
+            <td th:text="${m.getTown()}">town</td>
+            <td th:text="${m.getEventName()}">name</td>
+            <td th:text="${m.getDate()}">12-12-2020</td>
+        </tr>
+    </table>
+</main>
+
+</body>
+</html>

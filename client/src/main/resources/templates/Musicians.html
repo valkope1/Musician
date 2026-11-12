@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>MUSICIANS</title>
+</head>
+<body>
+<nav>
+    <a href="/">HOME</a>
+    <a href="/musicians">Musicians management</a>
+    <a href="/bands">Bands management</a>
+    <a href="/musicalevents">Musical events management</a>
+</nav>
+<main>
+    <h1>Musician management</h1>
+    <td><a href="#" th:href="@{/musicians/create}">CREATE NEW MUSICIAN</a></td>
+    <table>
+        <thread>
+            <tr>
+                <td>musician_id</td>
+                <td>name</td>
+                <td>surname</td>
+                <td>instrument</td>
+                <td>birth_date</td>
+                <td>band_id</td>
+            </tr>
+        </thread>
+        <tr th:each="m: ${musicians}">
+            <td th:text="${m.musicianId}">id</td>
+            <td th:text="${m.name}">uname</td>
+            <td th:text="${m.surname}">unsssame</td>
+            <td th:text="${m.instrument}">unsssame</td>
+            <td th:text="${m.birthDate}">2021-01-01</td>
+            <td th:text="${m.bandId}">0</td>
+            <td><a href="#" th:href="@{/musicians/update(id=${m.musicianId})}">EDIT</a></td>
+            <td><a href="#" th:href="@{/musicians/delete(id=${m.musicianId})}">DELETE</a></td>
+        </tr>
+    </table>
+</main>
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>MUSICIANS</title>
+</head>
+<body>
+<nav>
+    <a href="/">HOME</a>
+    <a href="/musicians">Musicians management</a>
+    <a href="/bands">Bands management</a>
+    <a href="/musicalevents">Musical events management</a>
+</nav>
+<main>
+    <h1>MUSICIAN - EDIT</h1>
+    <form action="/musicians/update" method="post" th:object="${musician}">
+        <label for="musicianId">Id:</label>
+        <input type="text" readonly="readonly" id="musicianId" name="musicianId" th:field="*{musicianId}" />
+
+        <br/>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required th:field="*{name}" />
+
+        <br/>
+
+        <label for="surname">Surname:</label>
+        <input type="text" id="surname" name="surname" required th:field="*{surname}" />
+
+        <br/>
+
+        <label for="instrument">Instrument:</label>
+        <input type="text" id="instrument" name="instrument" required th:field="*{instrument}" />
+
+        <br/>
+
+        <label for="birthDate">Birthdate:</label>
+        <input type="date" id="birthDate" name="birthDate" required th:field="*{birthDate}" />
+
+        <br/>
+
+        <select id="bandId" name="bandId" th:required="true">
+            <option value="">Band id</option>
+            <option th:each="option : ${bandsId}" th:value="${option}" th:text="${option}"></option>
+        </select>
+        <br/>
+
+        <button type="submit">Save</button>
+    </form>
+</main>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>BANDS</title>
+</head>
+<body>
+<nav>
+    <a href="/">HOME</a>
+    <a href="/musicians">Musicians management</a>
+    <a href="/bands">Bands management</a>
+    <a href="/musicalevents">Musical events management</a>
+</nav>
+<main>
+    <h1>BAND - EDIT</h1>
+    <form action="/bands/update" method="post" th:object="${band}">
+        <label for="bandId">ID:</label>
+        <input type="text"  readonly="readonly" id="bandId" name="bandId" th:field="*{bandId}" />
+
+        <br/>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required th:field="*{name}" />
+
+        <br/>
+
+        <label for="genre">Genre:</label>
+        <input type="text" id="genre" name="genre" required th:field="*{genre}" />
+
+        <br/>
+
+        <label for="formationDate">Formation_date:</label>
+        <input type="date" id="formationDate" name="formationDate" required th:field="*{formationDate}" />
+
+        <br/>
+
+        <label for="musiciansId">musicians_ID:</label>
+        <input type="text" readonly="readonly" id="musiciansId" name="musiciansId" th:field="*{musiciansId}" />
+
+        <br/>
+
+        <label for="musicalEventsId">musical_events_ID:</label>
+        <input type="text" readonly="readonly" id="musicalEventsId" name="musicalEventsId" th:field="*{musicalEventsId}" />
+
+        <br/>
+
+        <button type="submit">Save</button>
+    </form>
+</main>
+
+</body>
+</html>
